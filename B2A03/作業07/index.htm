@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <title>作業06</title>
+    <style>
+        h3 {
+   color: brown;
+  }
+        table {
+      width: 90%;
+      border-color: orange;
+      border-style: solid;
+      border-collapse: collapse
+  }
+  tr {
+      text-align: center;
+      border-color: pink;
+      border-style: solid;
+  }
+  td {
+      vertical-align: middle;
+      border-color: orange;
+      border-style: solid;
+  }
+    </style>
+
+</head>
+
+<body>
+<script>
+   document.write("<h3>以下為九九乘法表</h3>");
+
+    document.write("<table>");
+    for (j = 1; j <= 9; j++){
+
+       document.write("<tr>");
+
+       for (i = 1; i <= 9; i++){
+           document.write("<td>");
+           document.write(i+"x"+j+"="+i*j+"<br>");
+           }
+       document.write("</td>");
+
+       document.write("</tr>");
+    }
+    document.write("</table>");
+
+</script>
+
+</body>
+
+</html>
