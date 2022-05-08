@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+		<title>課堂作業09</title>
+	<style>
+		h4 {
+			color: blue;
+		}
+		label {
+			color: green;
+		}
+		input {
+		    color: brown;
+		}
+		div {
+		    color:purple;
+		    margin:5px;
+		}
+		table {
+		      width:90%
+		      border-color: red;
+		      border-style: solid;
+		      border-collapse:collapse;
+		}
+		tr {
+		   text-align: center;
+		   border-color: pink;
+		   border-style: solid;
+		}
+		td {
+		   text-align: middle;
+		   border-color: orange;
+		   border-style:solid;
+		}
+
+	</style>
+</head>
+	<body>
+    <form id="form01">
+		<label>姓名:</label>
+		<input type="text" name="name01" value="楊才蓁"><br>
+		<label>收件住址:</label>
+		<input type="text" name="address01" value="新北市板橋區實踐路93巷93號4樓"><br>
+		<label>電話:</label>
+		<input type="tel" name="tel01" value="0908510611"><br>
+		<label>電子郵件:</label>
+		<input type="email" name="email01" value="jennyyang0517@gmail.com"><br>
+		<label>指定送貨日期:</label>
+		<input type="date" name="date01"><br>
+		<label>水果種類:(四選一)</label><br>
+		<input type="radio" name="fruit" id="fruit01" value="日本溫室水蜜桃(1箱)">日本溫室水蜜桃(1箱)2880元<br>
+		<input type="radio" name="fruit" id="fruit02" value="澳洲田地綠葡萄(3台斤)">澳洲甜地綠葡萄(3台斤)405元<br>
+		<input type="radio" name="fruit" id="fruit03" value="牛奶玉女蕃茄(1台斤)">牛奶玉女蕃茄(1台斤)199元<br>
+		<input type="radio" name="fruit" id="fruit04" value="赤肉網紋哈密瓜(1箱)">赤肉網紋哈密瓜(1箱)399元<br>
+	</form>
+	<br>
+	<button onclick="shoppingInfo()"><h4>結帳</h4></button>
+	<div id="demo"></div>
+	<script>
+	 text += ("<table>");
+		function shoppingInfo() {
+		    const x = document.getElementById("form01");
+		    var item = "";
+		    var price = 0;
+		    var text = "<h4>您的購物資訊如下:</h4>";
+		    var i;
+		    for(i = 0;i < 5;i++) {
+		    text += ("<tr>");
+		        switch (i) {
+		            case 0:
+		                item = "姓名: ";
+		                break;
+		            case 1:
+		                item = "收件住址:";
+		                break;
+		            case 2:
+		                item = "電話:";
+		                break;
+		            case 3:
+		                item = "電子郵件:";
+		                break;
+		            case 4:
+		                item = "指定送貨日期:";
+		                break;
+		        }
+		        text += item + x.elements[i].value + "<br>";
+		        text += ("<td>")
+		    }
+		    for(i = 5;i <= 8;i++) {
+		    text += ("<td>");
+		       if (x.elements[i].checked == true) {
+		          switch (i) {
+		                  case 5:
+		                     price = 2880;
+		                     break;
+		                  case 6:
+		                     price = 405;
+		                     break;
+		                  case 7:
+		                     price = 199;
+		                     break;
+		                  case 8:
+		                     price = 399;
+		                     break;
+		          }
+		               text += "水果種類: " + x.elements[i].value + "<br>";
+		               text += "價格合計: " + price + "元<br>";
+		       }
+		    text += ("</td>");
+		    text += ("</tr>")
+		    }
+		       document.getElementById("demo").innerHTML = text;
+		}
+		text += ("</table>");
+	</script>
+	</body>
+</html>
